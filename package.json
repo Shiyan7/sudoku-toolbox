@@ -1,0 +1,29 @@
+{
+  "name": "sudoku-toolbox",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "pub": "tsc && npm version patch && npm publish"
+  },
+  "keywords": [
+    "generator",
+    "solver",
+    "areas",
+    "sudoku"
+  ],
+  "author": "Shiyan7",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "sudoku-gen": "^1.0.2"
+  }
+}
