@@ -1,33 +1,38 @@
-{
-  "name": "sudoku-toolbox",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "dev": "tsc --watch",
-    "prebuild": "rimraf dist",
-    "build": "tsc",
-    "postbuild": "ncp src/types dist/types && ncp package.json README.md LICENSE dist"
-  },
-  "keywords": [
-    "generator",
-    "solver",
-    "areas",
-    "sudoku"
-  ],
-  "author": "Shiyan7",
-  "license": "ISC",
-  "devDependencies": {
-    "ncp": "^2.0.0",
-    "rimraf": "^5.0.1",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2"
-  },
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "sudoku-gen": "^1.0.2"
-  }
-}
+# Sudoku toolbox
+
+## Install
+
+```
+yarn add sudoku-toolbox
+```
+
+## Usage
+
+```js
+import { generateKillerSudoku } from "sudoku-toolbox";
+
+const sudoku = generateKillerSudoku();
+
+const { puzzle, solution, areas, difficulty } = sudoku;
+
+const { verticalSeparations, horizontalSeparations } = getSeparationsFromAreas(areas);
+```
+
+## Details
+
+The function `generateKillerSudoku` takes an optional parameter `difficulty` which must be between `easy`, `hard`, `medium` and `expert`.
+
+You can customize the number of cells each difficulty removes from the full solution with the `overrideNumberOfCellsToRemove` function like this:
+```js
+import { 
+    generateKillerSudoku, 
+    overrideNumberOfCellsToRemove
+} from "sudoku-toolbox";
+
+overrideNumberOfCellsToRemove("easy", 15)
+
+const sudoku = generateKillerSudoku("easy");
+```
+
+By default, the numbers of cells to remove for each difficulty are:
+```js

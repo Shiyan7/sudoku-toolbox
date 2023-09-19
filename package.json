@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "ncp": "^2.0.0",
+    "prettier": "^3.0.3",
     "rimraf": "^5.0.1",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2"
@@ -29,7 +30,6 @@
     "dist"
   ],
   "dependencies": {
-    "prettier": "^3.0.3",
     "sudoku-gen": "^1.0.2"
   }
 }
