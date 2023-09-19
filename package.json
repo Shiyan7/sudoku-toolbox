@@ -1,6 +1,6 @@
 {
   "name": "sudoku-toolbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple sudoku toolbox",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,8 +13,8 @@
     "pub": "yarn build && npm version patch && npm publish"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Shiyan7/sudoku-toolbox.git"
+    "type": "git",
+    "url": "git+https://github.com/Shiyan7/sudoku-toolbox.git"
   },
   "keywords": [
     "generator",
