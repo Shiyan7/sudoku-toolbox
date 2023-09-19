@@ -12,7 +12,7 @@ function findAvailableCell(areas: Area[]): Coord {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       if (!usedCells.some((cell) => cell[0] === i && cell[1] === j)) {
-        availableCells.push([i, j] as never);
+        availableCells.push([i, j]);
       }
     }
   }
@@ -38,7 +38,7 @@ function getAvailableAdjacentCells(currentArea: Area, currentCell: Coord, areas:
     .filter(([i, j]) => !currentAreaNumbers.includes(solution[i * 9 + j]));
 }
 
-export function generateAreas(sudoku: KillerSudoku): KillerSudoku {
+export function generateAreas(sudoku: KillerSudoku): void {
   const areas: Area[] = [];
 
   while (!isComplete(areas)) {
@@ -61,11 +61,8 @@ export function generateAreas(sudoku: KillerSudoku): KillerSudoku {
       lastCell = nextCell;
     }
 
-    areas.push(area as never);
+    areas.push(area);
   }
 
-  return {
-    ...sudoku,
-    areas,
-  };
+  sudoku.areas = areas;
 }
