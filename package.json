@@ -1,6 +1,6 @@
 {
   "name": "sudoku-toolbox",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "description": "Simple sudoku toolbox",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
     "build": "tsc",
     "format": "prettier ./.prettierrc.json --write ./src",
     "postbuild": "rimraf dist/types && ncp src/types dist/types types && copy package.json dist && copy README.md dist && copy LICENSE dist",
-    "npm-publish": "yarn build && npm version patch && npm publish"
+    "npm-publish": "yarn build && npm version patch && npm publish ./dist"
   },
   "repository": {
     "type": "git",
