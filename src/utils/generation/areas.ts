@@ -40,12 +40,17 @@ function getAvailableAdjacentCells(currentArea: Area, currentCell: Coord, areas:
 
 export function generateAreas(sudoku: KillerSudoku): KillerSudoku {
   const areas: Area[] = [];
+
   while (!isComplete(areas)) {
     const area = { cells: [], sum: 0 };
     const startingCell = findAvailableCell(areas);
+
     addCellToArea(area, startingCell, sudoku);
-    const maxAreaLength = Math.floor(Math.random() * 6) + 2; // 2-7
+
+    const maxAreaLength = Math.floor(Math.random() * 6) + 2;
+
     let lastCell = startingCell;
+
     while (area.cells.length < maxAreaLength) {
       const availableAdjacentCells = getAvailableAdjacentCells(area, lastCell, areas, sudoku.solution);
       if (availableAdjacentCells.length === 0) {
@@ -55,6 +60,7 @@ export function generateAreas(sudoku: KillerSudoku): KillerSudoku {
       addCellToArea(area, nextCell, sudoku);
       lastCell = nextCell;
     }
+
     areas.push(area as never);
   }
 

@@ -30,11 +30,13 @@ export function overrideNumberOfCellsToRemove(difficulty: Difficulty, number: nu
 export function preparePuzzle(solution: string, difficulty: Difficulty, areas: Area[]): string {
   let puzzle = solution.slice(0).split('');
   let emptyCells = 0;
+
   while (emptyCells < numberOfCellsToRemove[difficulty]) {
     const notEmptyCellIndexes = puzzle
       .map((cell, index) => (cell === '-' ? -1 : index))
       .filter((index) => index !== -1);
     const index = notEmptyCellIndexes[Math.floor(Math.random() * notEmptyCellIndexes.length)];
+
     if (puzzle[index] !== '-') {
       const temp = puzzle[index];
       puzzle[index] = '-';

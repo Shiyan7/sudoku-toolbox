@@ -9,7 +9,8 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "format": "prettier ./.prettierrc.json --write ./src",
-    "postbuild": "rimraf dist/types && ncp src/types dist/types && copy package.json dist && copy README.md dist && copy LICENSE dist"
+    "postbuild": "rimraf dist/types && ncp src/types dist/types && copy package.json dist && copy README.md dist && copy LICENSE dist",
+    "pub": "yarn build && npm version patch && npm publish"
   },
   "repository": {
       "type": "git",

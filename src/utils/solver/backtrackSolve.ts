@@ -15,15 +15,18 @@ export function backtrackSolve(puzzle: string[], areas: Area[]): BacktrackSolveR
 
 function backtrackSolveAux(puzzleCopy: string[], areas: Area[]) {
   const emptyCells = getEmptyCells(puzzleCopy);
+
   if (emptyCells.length === 0) {
     return true;
   }
+
   const cell = emptyCells[0] as Coord;
   const [i, j] = cell;
   const row = getRow(puzzleCopy, i);
   const col = getCol(puzzleCopy, j);
   const box = getBox(puzzleCopy, i, j);
   const { area, currentSum, sum } = getArea(puzzleCopy, areas, i, j);
+
   for (let n = 1; n <= 9; n++) {
     if (
       !row.includes(`${n}`) &&
@@ -39,6 +42,7 @@ function backtrackSolveAux(puzzleCopy: string[], areas: Area[]) {
       puzzleCopy[i * 9 + j] = '-';
     }
   }
+
   return false;
 }
 function getEmptyCells(puzzle: string[]) {
@@ -53,12 +57,15 @@ function getEmptyCells(puzzle: string[]) {
     })
     .filter((coord) => coord !== undefined);
 }
+
 function getRow(puzzle: string[], i: number) {
   return puzzle.join('').slice(i * 9, i * 9 + 9);
 }
+
 function getCol(puzzle: string[], j: number) {
   return puzzle.filter((_, index) => index % 9 === j).join('');
 }
+
 function getBox(puzzle: string[], i: number, j: number) {
   const boxI = Math.floor(i / 3);
   const boxJ = Math.floor(j / 3);
@@ -70,6 +77,7 @@ function getBox(puzzle: string[], i: number, j: number) {
     })
     .join('');
 }
+
 function getArea(puzzle: string[], areas: Area[], i: number, j: number) {
   const area = areas.find((area) => area.cells.some((cell) => cell[0] === i && cell[1] === j)) as Area;
   const currentSum = area.cells.reduce((sum, cell) => sum + (parseInt(puzzle[cell[0] * 9 + cell[1]]) || 0), 0);
