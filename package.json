@@ -1,6 +1,6 @@
 {
   "name": "sudoku-toolbox",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Simple sudoku toolbox",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
