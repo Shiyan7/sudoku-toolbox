@@ -8,7 +8,7 @@
     "dev": "tsc --watch",
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "postbuild": "rimraf dist/types && ncp src/types dist/types && copy package.json dist && copy README.md dist && copy LICENSE dist"
+    "postbuild": "ncp src/types dist/types && ncp package.json README.md LICENSE dist"
   },
   "keywords": [
     "generator",
