@@ -35,9 +35,6 @@
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2"
   },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "sudoku-gen": "^1.0.2"
   }
