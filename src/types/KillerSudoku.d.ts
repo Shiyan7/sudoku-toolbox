@@ -1,5 +1,5 @@
-import { Difficulty } from 'sudoku-gen/dist/types/difficulty.type';
 import { Area } from './Area';
+import { Difficulty } from './Difficulty';
 
 export type KillerSudoku = {
   puzzle: string;

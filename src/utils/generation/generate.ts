@@ -1,4 +1,4 @@
-import { Difficulty } from 'sudoku-gen/dist/types/difficulty.type';
+import { Difficulty } from '../../types/Difficulty';
 import { KillerSudoku } from '../../types/KillerSudoku';
 import { getSudoku } from 'sudoku-gen';
 

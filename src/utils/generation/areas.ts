@@ -38,7 +38,7 @@ function getAvailableAdjacentCells(currentArea: Area, currentCell: Coord, areas:
     .filter(([i, j]) => !currentAreaNumbers.includes(solution[i * 9 + j]));
 }
 
-export function generateAreas(sudoku: KillerSudoku): void {
+export function generateAreas(sudoku: KillerSudoku): KillerSudoku {
   const areas: Area[] = [];
   while (!isComplete(areas)) {
     const area = { cells: [], sum: 0 };
@@ -57,5 +57,9 @@ export function generateAreas(sudoku: KillerSudoku): void {
     }
     areas.push(area as never);
   }
-  sudoku.areas = areas;
+
+  return {
+    ...sudoku,
+    areas,
+  };
 }

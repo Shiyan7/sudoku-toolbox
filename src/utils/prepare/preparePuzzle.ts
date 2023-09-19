@@ -1,5 +1,5 @@
-import { Difficulty } from 'sudoku-gen/dist/types/difficulty.type';
 import { Area } from '../../types/Area';
+import { Difficulty } from '../../types/Difficulty';
 import { backtrackSolve } from '../solver/backtrackSolve';
 
 /**
