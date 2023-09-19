@@ -2,8 +2,8 @@
   "name": "sudoku-toolbox",
   "version": "1.1.5",
   "description": "Simple sudoku toolbox",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "dev": "tsc --watch",
     "prebuild": "node scripts/remove-dist",
@@ -29,9 +29,7 @@
   },
   "homepage": "https://github.com/Shiyan7/sudoku-toolbox#readme",
   "devDependencies": {
-    "ncp": "^2.0.0",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.1",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2"
   },
