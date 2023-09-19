@@ -1,7 +1,7 @@
 {
   "name": "sudoku-toolbox",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Simple sudoku toolbox",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,6 +11,10 @@
     "format": "prettier ./.prettierrc.json --write ./src",
     "postbuild": "rimraf dist/types && ncp src/types dist/types && copy package.json dist && copy README.md dist && copy LICENSE dist"
   },
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Shiyan7/sudoku-toolbox.git"
+  },
   "keywords": [
     "generator",
     "solver",
@@ -18,7 +22,11 @@
     "sudoku"
   ],
   "author": "Shiyan7",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shiyan7/sudoku-toolbox/issues"
+  },
+  "homepage": "https://github.com/Shiyan7/sudoku-toolbox#readme",
   "devDependencies": {
     "ncp": "^2.0.0",
     "prettier": "^3.0.3",
