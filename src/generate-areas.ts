@@ -1,6 +1,7 @@
-import { Area } from '../../types/Area';
-import { Coord } from '../../types/Coord';
-import { KillerSudoku } from '../../types/KillerSudoku';
+import { compare } from './shared/compare';
+import { Area } from './types/Area';
+import { Coord } from './types/Coord';
+import { Sudoku } from './types/Sudoku';
 
 function isComplete(areas: Area[]) {
   return areas.map((area) => area.cells.length).reduce((a, b) => a + b, 0) === 81;
@@ -19,8 +20,9 @@ function findAvailableCell(areas: Area[]): Coord {
   return availableCells[Math.floor(Math.random() * availableCells.length)];
 }
 
-function addCellToArea(area: Area, cell: Coord, sudoku: KillerSudoku) {
+function addCellToArea(area: Area, cell: Coord, sudoku: Sudoku) {
   area.cells.push(cell);
+  area.cells.sort(compare);
   area.sum += parseInt(sudoku.solution[cell[0] * 9 + cell[1]]);
 }
 
@@ -38,7 +40,7 @@ function getAvailableAdjacentCells(currentArea: Area, currentCell: Coord, areas:
     .filter(([i, j]) => !currentAreaNumbers.includes(solution[i * 9 + j]));
 }
 
-export function generateAreas(sudoku: KillerSudoku): void {
+export function generateAreas(sudoku: Sudoku): Sudoku {
   const areas: Area[] = [];
 
   while (!isComplete(areas)) {
@@ -64,5 +66,5 @@ export function generateAreas(sudoku: KillerSudoku): void {
     areas.push(area);
   }
 
-  sudoku.areas = areas;
+  return { ...sudoku, areas };
 }

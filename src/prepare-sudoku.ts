@@ -1,6 +1,6 @@
-import { Area } from '../../types/Area';
-import { Difficulty } from '../../types/Difficulty';
-import { backtrackSolve } from '../solver/backtrackSolve';
+import { backtrackSolve } from './backtrack-solve';
+import { Sudoku } from './types';
+import { Difficulty } from './types/Difficulty';
 
 /**
  * Override the number of cells to remove from the puzzle for a given difficulty.
@@ -9,11 +9,11 @@ import { backtrackSolve } from '../solver/backtrackSolve';
  * @param number The new number of cells to remove for this difficulty
  */
 
-let numberOfCellsToRemove = {
-  easy: 30,
-  medium: 40,
-  hard: 50,
-  expert: 60,
+const numberOfCellsToRemove = {
+  easy: 20,
+  medium: 30,
+  hard: 40,
+  expert: 50,
 };
 
 /**
@@ -27,7 +27,13 @@ export function overrideNumberOfCellsToRemove(difficulty: Difficulty, number: nu
   numberOfCellsToRemove[difficulty] = number;
 }
 
-export function preparePuzzle(solution: string, difficulty: Difficulty, areas: Area[]): string {
+function getRandomIndex(arr: number[]) {
+  return Math.floor(Math.random() * arr.length);
+}
+
+export function prepareSudoku(sudoku: Sudoku): Sudoku {
+  const { solution, difficulty, areas } = sudoku;
+
   let puzzle = solution.slice(0).split('');
   let emptyCells = 0;
 
@@ -47,5 +53,9 @@ export function preparePuzzle(solution: string, difficulty: Difficulty, areas: A
       }
     }
   }
-  return puzzle.join('');
+
+  return {
+    ...sudoku,
+    puzzle: puzzle.join('').replaceAll('-', '0'),
+  };
 }

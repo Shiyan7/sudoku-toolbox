@@ -9,29 +9,20 @@ yarn add sudoku-toolbox
 ## Usage
 
 ```js
-import { generateKillerSudoku } from "sudoku-toolbox";
+import { generateSudoku } from "sudoku-toolbox";
 
-const sudoku = generateKillerSudoku();
+const sudoku = generateSudoku();
 
 const { puzzle, solution, areas, difficulty } = sudoku;
-
-const { verticalSeparations, horizontalSeparations } = getSeparationsFromAreas(areas);
 ```
 
 ## Details
 
-The function `generateKillerSudoku` takes an optional parameter `difficulty` which must be between `easy`, `hard`, `medium` and `expert`.
-
-You can customize the number of cells each difficulty removes from the full solution with the `overrideNumberOfCellsToRemove` function like this:
+The function `generateSudoku` takes an optional parameter `difficulty` which must be between `easy`, `hard`, `medium` and `expert`.
 ```js
-import { 
-    generateKillerSudoku, 
-    overrideNumberOfCellsToRemove
-} from "sudoku-toolbox";
+import { generateSudoku } from "sudoku-toolbox";
 
-overrideNumberOfCellsToRemove("easy", 15)
-
-const sudoku = generateKillerSudoku("easy");
+const sudoku = generateSudoku("easy");
 ```
 
 By default, the numbers of cells to remove for each difficulty are:

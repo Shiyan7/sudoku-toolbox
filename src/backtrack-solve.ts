@@ -1,6 +1,6 @@
-import { Coords } from '../model/Coords';
-import { Area } from '../../types/Area';
-import { Coord } from '../../types/Coord';
+import { getCoord } from './shared/get-coord';
+import { Area } from './types/Area';
+import { Coord } from './types/Coord';
 
 type BacktrackSolveResult = {
   puzzle: string;
@@ -51,11 +51,11 @@ function getEmptyCells(puzzle: string[]) {
       if (char === '-') {
         const i = Math.floor(index / 9);
         const j = index % 9;
-        return Coords(i, j);
+        return getCoord(i, j);
       }
       return undefined;
     })
-    .filter((coord) => coord !== undefined);
+    .filter(Boolean);
 }
 
 function getRow(puzzle: string[], i: number) {
